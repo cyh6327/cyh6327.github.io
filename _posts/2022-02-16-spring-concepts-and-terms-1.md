@@ -2,12 +2,9 @@
 layout: post
 title:  "스프링 개념, 용어 정리 - 1"
 excerpt: "Servlet, Dispatcher-Servlet, Filter, Interceptor, AOP"
-categories: 
-    - spring
+categories: spring
 date: 2023-02-16
-last_modified_at: 2023-02-16
 ---
-
 # 0. 기타 용어
 - J2EE (Java 2 Enterprise Edition) : 자바 기술로 기업환경의 어플리케이션을 만드는데 필요한 스펙들을 모아둔 스펙 집합
 
