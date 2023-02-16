@@ -1,4 +1,5 @@
 ---
+layout: post
 title:  "스프링 개념, 용어 정리 - 1"
 excerpt: "Servlet, Dispatcher-Servlet, Filter, Interceptor, AOP"
 categories: 
