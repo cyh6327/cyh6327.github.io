@@ -1,10 +1,11 @@
 ---
-layout: post
-title: YoungCultureCenter 프로젝트 시큐리티 공부
+title:	"YoungCultureCenter 프로젝트 - security"
+categories: 
+    - project
 date: 2023-02-15
-last_modified_at: 2023-02-15
+last_modified_at: 2023-02-21
 ---
-
+# YoungCultureCenter 프로젝트 - security
 # security-context.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
