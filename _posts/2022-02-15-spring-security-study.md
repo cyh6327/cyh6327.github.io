@@ -7,7 +7,6 @@ last_modified_at: 2023-02-20
 ---
 
 # Spring Security
-참고한 글 : https://mangkyu.tistory.com/76
 # 0. 용어
 - WAS(Web Application Server) :     
   1) DB 조회나 다양한 로직 처리를 요구하는 동적인 컨텐츠를 제공하기 위해 만들어진 Application Server  
@@ -69,6 +68,13 @@ last_modified_at: 2023-02-20
 ### 1. BCryptPasswordEncoder 클래스를 이용한 패스워드 보호
 - 암호화가 필요한 이유 : 대부분의 사용자가 여러 웹 사이트를 이용하는데 이 때 동일한 패스워드를 사용하다가 어느 한 웹 사이트에서 비밀번호가 유출되면 이 사람이 가입된 모든 웹 사이트가 해킹된 일이 벌어질수 있음.        
 따라서 암호화를 해두면 설사 서버가 털려서 패스워드가 유출된다 하더라도 해당 사용자의 이메일로 가입된 다른 웹사이트에 접근하지 못할 것.
+
+
+
+# References
+- [SpringBoot] Spring Security란?   
+https://mangkyu.tistory.com/76
+- http://www.yes24.com/Product/Goods/64340061
 
    
 

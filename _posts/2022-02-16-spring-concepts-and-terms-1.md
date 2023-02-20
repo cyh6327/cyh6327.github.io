@@ -1,10 +1,13 @@
 ---
-layout: post
 title:  "스프링 개념, 용어 정리 - 1"
 excerpt: "Servlet, Dispatcher-Servlet, Filter, Interceptor, AOP"
-categories: spring
+categories: 
+    - spring
 date: 2023-02-16
+last_modified_at: 2023-02-16
 ---
+
+# 스프링 개념, 용어 정리 - 1
 # 0. 기타 용어
 - J2EE (Java 2 Enterprise Edition) : 자바 기술로 기업환경의 어플리케이션을 만드는데 필요한 스펙들을 모아둔 스펙 집합
 
@@ -108,3 +111,12 @@ ex) 사용자의 ID를 기반으로 조회한 사용자 정보를 HttpServletReq
 - 이러한 부가 기능 모듈은 기존의 객체지향 설계와 구분되는 새로운 특성이 있어서 Aspect라고 불리기 시작함.
 - Aspect : 애플리케이션의 핵심 기능을 담고 있지는 않지만 애플리케이션을 구성하는 한 가지 요소로써 핵심 기능에 부가되어 의미를 갖는 모듈
 - 애플리케이션의 핵심적인 기능에서 부가적인 기능을 분리하여 독특한 모듈로 만들고 설계하여 개발하는 방법을 AOP라고 부름.
+
+# References
+- [JSP] 서블릿(Servlet)이란?    
+https://mangkyu.tistory.com/14
+- [Spring] Dispatcher-Servlet(디스패처 서블릿)이란? 디스패처 서블릿의 개념과 동작 과정    
+https://mangkyu.tistory.com/18
+- [Spring] 필터(Filter) vs 인터셉터(Interceptor) 차이 및 용도 - (1)   
+https://mangkyu.tistory.com/173
+- http://www.yes24.com/Product/Goods/64340061

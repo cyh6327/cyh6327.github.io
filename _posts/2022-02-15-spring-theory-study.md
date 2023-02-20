@@ -58,3 +58,6 @@ last_modified_at: 2023-02-15
 => 빈 등록자체를 빈 클래스 자체에다가 할 수 있다는 의미.
 - @Setter(onMethod_ = @Autowired) : onMethod속성 = 생성되는 setter메서드에 @Autowired 어노테이션을 추가함
 - @Autowired : 자신이 특정한 객체에 의존적이므로 자신에게 해당 타입의 빈을 주입해주라는 표시
+
+# References
+- http://www.yes24.com/Product/Goods/64340061
