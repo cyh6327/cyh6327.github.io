@@ -20,14 +20,14 @@ url:                   https://cyh6327.github.io
 lang:                  ko
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Blog
+title:                 Yeonhee
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 # description:           >
 
 # A shorter description for the sidebar.
-tagline:               개인 공부 기록하는 블로그
+tagline:               Yeonhee's DevLog
 
 # A list of keywords for your blog
 keywords:              []
@@ -35,7 +35,7 @@ keywords:              []
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-# logo:                  /assets/img/logo.png
+# logo:                  /assets/img/developer.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
@@ -420,3 +420,12 @@ jekyll_compose:
       links:
         - title: Project Link
           url: https://example.com
+
+tipue_search:
+     include:
+         pages: false
+         collections: []
+     exclude:
+         files: [search.html, index.html, tags.html]
+         categories: []
+         tags: []
