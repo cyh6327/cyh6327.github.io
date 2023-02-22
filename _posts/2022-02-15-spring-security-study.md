@@ -3,7 +3,7 @@ title:  "Spring Security"
 categories: 
     - spring
 date: 2023-02-15
-last_modified_at: 2023-02-20
+last_modified_at: 2023-02-23
 ---
 
 # Spring Security
@@ -59,22 +59,79 @@ last_modified_at: 2023-02-20
 ### 2. CSRF 토큰
    - 스프링 시큐리티에서 POST 방식을 이용하는 경우 기본적으로 CSRF 토큰을 이용하게 됌.
    - CSRF 토큰 : 
-   1. 서버에 들어온 요청이 실제 서버에서 허용한 요청이 맞는지 확인하기 위한 토큰.  
-   2. CSRF Token은 임의의 난수를 생성하고 세션에 저장함.    
-   사용자가 POST요청을 할 때, 해당 난수 값(토큰값)을 포함해서 서버로 전송시키고, 서버에서는 요청을 받을 때마다 세션에 저장된 토큰값과 요청 파라미터에 전달된 토큰값이 같은지 체크함.  
-   만일 토큰값이 다르다면 작업을 처리하지 않는 방식.
+     1. 서버에 들어온 요청이 실제 서버에서 허용한 요청이 맞는지 확인하기 위한 토큰.  
+     2. CSRF Token은 임의의 난수를 생성하고 세션에 저장함.    
+     사용자가 POST요청을 할 때, 해당 난수 값(토큰값)을 포함해서 서버로 전송시키고, 서버에서는 요청을 받을 때마다 세션에 저장된 토큰값과 요청 파라미터에 전달된 토큰값이 같은지 체크함.  
+     만일 토큰값이 다르다면 작업을 처리하지 않는 방식.
 
 # 4. JDBC를 이용하는 간편 인증/권한 처리
-### 1. BCryptPasswordEncoder 클래스를 이용한 패스워드 보호
-- 암호화가 필요한 이유 : 대부분의 사용자가 여러 웹 사이트를 이용하는데 이 때 동일한 패스워드를 사용하다가 어느 한 웹 사이트에서 비밀번호가 유출되면 이 사람이 가입된 모든 웹 사이트가 해킹된 일이 벌어질수 있음.        
-따라서 암호화를 해두면 설사 서버가 털려서 패스워드가 유출된다 하더라도 해당 사용자의 이메일로 가입된 다른 웹사이트에 접근하지 못할 것.
+## 1) BCryptPasswordEncoder 클래스를 이용한 패스워드 보호
+- 암호화가 필요한 이유
+  1. 대부분의 사용자가 여러 웹 사이트를 이용하는데 이 때 동일한 패스워드를 사용하다가 어느 한 웹 사이트에서 비밀번호가 유출되면 이 사람이 가입된 모든 웹 사이트가 해킹된 일이 벌어질수 있음.        
+  따라서 암호화를 해두면 설사 서버가 털려서 패스워드가 유출된다 하더라도 해당 사용자의 이메일로 가입된 다른 웹사이트에 접근하지 못할 것.
+  2. 비밀번호를 암호화 함으로써 비밀번호 데이터가 노출되더라도 확인하기 어렵도록 만들어 줄 수 있음.
+
+## 2) JUnit을 사용한 자바 단위테스트
+- 단위테스트란?   
+특정 소스코드의 모듈이 의도한 대로 작동하는지 검증하는 테스트.    
+즉, 함수 및 메소드에 대한 테스트를 하는 작업.
+1. [MemberTest.java] PasswordEncoder를 이용해서 암호화된 비밀번호를 tb_user 테이블에 insert하면서 사용자 데이터 생성
+
+2. [AuthTest.java] user_auth 테이블에 사용자의 권한 부여하는 insert문 실행
+
+
+# 5. 커스텀 UserDetailsService 활용
+- UserDetailsService : 원하는 객체를 인증과 권한 체크에 활용할 수 있음
+## 1) MemberMapper.xml
+### 1. `<resultMap>`
+- User 객체를 가져오는 경우, 한 번에 tb_user와 user_auth를 조인해서 처리할 수 있는 방식으로 `<resultMap>` 을 사용함   
+- 하나의 MemberDto 인스턴스는 내부적으로 여러 개의 AuthDto를 가지는데 이를 '1+N 관계'라고 함.   
+즉, 하나의 데이터가 여러 개의 하위 데이터를 포함하고 있는 것을 의미.    
+- `<resultMap>` : 하나의 결과에 부가적으로 여러 개의 데이터를 처리하는 경우 1:N의 결과를 처리할 수 있게 해주는 태그.
+```xml
+	<resultMap type="MemberDto" id="memberMap">
+		<id property="user_id" column="user_id"/>
+		<result property="user_id" column="user_id"/>
+		<result property="user_name" column="user_name"/>
+		<result property="user_pw" column="user_pw"/>
+		<result property="user_gender" column="user_gender"/>
+		<result property="user_birth_date" column="user_birth_date"/>
+		<result property="user_email" column="user_email"/>
+		<result property="user_phone_number" column="user_phone_number"/>
+		<result property="user_postcode" column="user_postcode"/>
+		<result property="user_rNameAddr" column="user_rnameaddr"/>
+		<result property="user_detailAddr" column="user_detailaddr"/>
+		<result property="user_regdate" column="user_regdate"/>
+		<result property="user_grade" column="user_grade"/>
+		<result property="user_social_type" column="user_social_type"/>
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+	 	
+	<resultMap type="AuthDto" id="authMap">
+		<result property="user_id" column="user_id"/>
+		<result property="auth" column="auth"/>
+	</resultMap>
+  ```
+- `id="memberMap"`인 `<resultMap>`은 `<result>`와 `<collection>`을 이용해 바깥쪽 객체(MemberDto의 인스턴스)와 안쪽 객체들(AuthDto의 인스턴스들)을 구성할 수 있음.
+
+### 2. `resultMap="memberMap"`인 select문
+```xml
+	<select id="read" parameterType="String"  resultMap="memberMap">
+		SELECT 
+			tb_user.user_id , user_name, user_pw, user_gender, user_birth_date, user_email, user_phone_number,
+			user_postcode, user_rnameaddr, user_detailaddr, user_regdate, user_grade, user_social_type, auth
+		FROM tb_user tb_user, user_auth user_auth 
+		where tb_user.user_id = user_auth.user_id 
+		and tb_user.user_id = #{user_id}
+	</select>  
+```
+- user의 auth가 2개 이상일 경우, 해당 쿼리의 결과로 auth컬럼 값은 다르지만, 나머지 tb_user 컬럼 값은 동일하게 출력됌.
 
 
 
 # References
-- [SpringBoot] Spring Security란?   
-https://mangkyu.tistory.com/76
-- http://www.yes24.com/Product/Goods/64340061
+- [[SpringBoot] Spring Security란?](https://mangkyu.tistory.com/76)
+- [코드로 배우는 스프링 웹 프로젝트](http://www.yes24.com/Product/Goods/64340061)
 
    
 
