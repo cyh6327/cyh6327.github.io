@@ -52,6 +52,8 @@ menu:
     url:               /project/
   - title:             Spring
     url:               /spring/
+  - title:             Java
+    url:               /java/  
   - title:             Baekjoon
     url:               /baekjoon/
 
