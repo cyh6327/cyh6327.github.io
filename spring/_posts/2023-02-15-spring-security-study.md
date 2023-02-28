@@ -3,7 +3,7 @@ layout: post
 title:  "Spring Security"
 categories: [spring]
 date: 2023-02-15
-last_modified_at: 2023-02-25
+last_modified_at: 2023-03-01
 ---
 
 # Spring Security
@@ -17,9 +17,39 @@ last_modified_at: 2023-02-25
 - JSESSIONID : 세션을 유지하는데 사용되는 쿠키(Tomcat에서 발행. WAS마다 다른 이름을 사용함.)
 
 # 1. Spring Web Security란
+## 1) 정의
 - Spring Security는 Spring 기반의 애플리케이션의 보안(인증과 권한, 인가 등)을 담당하는 스프링 하위 프레임워크.
 - Spring Security는 '인증'과 '권한'에 대한 부분을 Filter 흐름에 따라 처리하고 있음.
 
+## 2) 인증이 되지 않은 상황에서의 요청
+스프링 시큐리티를 이용하게 되면 모든 요청은 Session을 발급 받음(스프링 시큐리티는 세션과 쿠키를 이용한 기술임)		
+
+Session을 발급받으면 클라이언트의 쿠키에 JSESSIONID라는 키로 SessionID가 저장됌.		
+
+AuthenticationFilter는 해당 요청의 JSESSIONID를 확인하여 매핑되는 인증 정보가 SecurityContext에 있는지 판단 후 없다면 Login 페이지로 이동시킴.
+
+## 3) 스프링 시큐리티 인증 아키텍쳐
+1. Http Request 수신 (로그인 양식으로 인증 요청)
+   - 스프링 시큐리티는 필터로 동작함.
+   - 요청이 들어오면 인증과 권한을 위한 필터들을 통하게 됌.
+
+2. 로그인 요청을 받으면 AuthenticationFilter가 HttpServletRequest에서 사용자가 보낸 아이디와 패스워드를 인터셉트함.		
+</br>
+AuthenticationFilter는 기본적으로 로그인 폼으로부터 오는 데이터를 username과 password로 인식하고 있으므로, `<input>`태그의 `name` 속성을 각각 username과 password로 지정해야 함.
+</br>
+이렇게 넘어온 username과 password를 이용해 UsernamePasswordAuthenticationToken이라는 인증 객체를 만들고, username과 password가 유효한 계정인지 판단하기 위해 AuthenticationManager에게 위임함.
+
+3. AuthenticationProvider의 구현체에서는 토큰에 있는 계정 정보가 유효한지 판단하는 로직을 구현해야 함.(DB로부터 조회해오는)
+
+4. UserDetailsService는 username 기반의 user details를 검색함.
+</br>
+UserDetailsService를 상속받은 서비스 객체는 loadUserByUsername을 재정의하여 DB에 계정 정보를 확인하는 로직을 구현하고 디비 정보가 유효하다면 유저의 상세 정보를 이용해 새로운 UserPasswordAuthenticationToken을 발급함.
+
+5. User 객체의 정보들을 UserDetails가 UserDetailsService에 전달함.
+
+6. AuthenticationProvider는 UserDetails 객체를 전달 받은 이후 실제 사용자의 입력정보와 UserDetails 객체를 가지고 인증을 시도함.
+
+7. 유저의 인증이 성공하면 전체 인증정보를 리턴하고 실패한다면 AuthenticationException을 던짐.
 # 2. 인증(Authorizatoin)과 인가(Authentication)
 ## 1) 인증(Authentication): 해당 사용자가 본인이 맞는지를 확인하는 절차
 - AuthenticationManager : 스프링 시큐리티에서 인증을 담당
@@ -330,6 +360,7 @@ $(document).ajaxSend(function(e, xhr, options) {
 
 
 # References
+- [Spring Security를 이용한 회원 로그인 구현과 동작 원리 정리 (+SecurityFilterChain 기능 정리 )](https://sjparkk-dev1og.tistory.com/113)
 - [[SpringBoot] Spring Security란?](https://mangkyu.tistory.com/76)
 - [코드로 배우는 스프링 웹 프로젝트](http://www.yes24.com/Product/Goods/64340061)
 - [Spring Security Authentication Provider](https://velog.io/@ewan/Spring-Security-Custom-Authentication-Provider)
