@@ -301,7 +301,7 @@ $(document).ajaxSend(function(e, xhr, options) {
 # References
 - [코드로 배우는 스프링 웹 프로젝트](http://www.yes24.com/Product/Goods/64340061)
 - [Spring Security Authentication Provider](https://velog.io/@ewan/Spring-Security-Custom-Authentication-Provider)
-- [Spring Security @PreAuthorize, @PostAuthorize 를 사용하는 신박한 전처리 후처리 기법](https://steemit.com/kr-dev/@igna84/spring-security-preauthorize-postauthorize)
+- [Spring Security @PreAuthorize, @PostAuthorize 를 사용하는 신박한 전처리 후처리 기법](https://steemit.com/kr-dev/@igna84/spring-security-preauthorize-postauthorize)	 
 
 
 
