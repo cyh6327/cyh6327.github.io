@@ -210,7 +210,6 @@ public interface GuestbookRepository extends JpaRepository<Guestbook, Long> {
 - JPA의 쿼리 메서드의 기능과 `@Query`는 선언할 때 고정된 형태의 값을 가진다는 단점이 있음.
 - 복잡한 조합을 사용하는 경우의 수가 많은 상황에서는 동적으로 쿼리를 생성해서 처리할 수 있는 기능이 필요.
 - Querydsl : 복잡한 검색조건이나 조인, 서브 쿼리 등의 기능 구현 가능
-- [www.querydsl.com](www.querydsl.com)
 - Querydsl는 작성된 엔티티 클래스를 그대로 이용하는 것이 아니라 'Q도메인' 이라는 것을 이용해야 함.
 
 ### 1) build.gradle 파일에 querydsl 관련 설정 추가
