@@ -197,7 +197,8 @@ div {
       content: attr(data-label-text);
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--code-header-text-color);
+      // color: var(--code-header-text-color);
+      color: #ccc;
     }
   }
 

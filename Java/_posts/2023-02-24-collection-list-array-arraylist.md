@@ -2,7 +2,7 @@
 title:  "[Java] Collection 인터페이스와 구현클래스"
 categories: 
     - Java
-tags: [Array, ArrayList]
+tags: [Collection, Array, ArrayList]
 date: 2023-02-24
 last_modified_at: 2023-02-24
 ---

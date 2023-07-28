@@ -2,16 +2,16 @@
 title:  "[SpringBoot] #5 페이징과 정렬 처리"
 categories: 
     - SpringBoot
+tags: [Paging, Pageable, Sort]
 date: 2023-03-29
 last_modified_at: 2023-03-29
 ---
 
-# [Spring Boot] #5 페이징과 정렬 처리
-
 ## 1. 페이징/정렬 처리하기
 - JPA가 실제 데이터베이스에서 사용하는 SQL의 처리를 자동으로 하기 때문에 개발자들은 SQL이 아닌 'API의 객체와 메서드를 사용하는 형태'로 페이징 처리를 할 수 있게 됨.
 - Spring Data JPA에서 페이징 처리와 정렬은 `findAll()` 메서드를 사용함.
-    > ＊ `findAll()` : `PagingAndSortRepository` 인터페이스의 메서드.
+    > #### ＊ `findAll()` :
+    > `PagingAndSortRepository` 인터페이스의 메서드.
 - [Interface PagingAndSortingRepository<T,ID>](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html) <br>
 ![image](https://user-images.githubusercontent.com/99089584/228426109-e32c1fa0-fbbb-4337-8b11-848bd7fcee3e.png)
 
@@ -23,13 +23,16 @@ last_modified_at: 2023-03-29
 
 ### 2) `PageRequest` 클래스
 - `PageRequest` 클래스의 생성자는 `protected`로 선언되어 `new`를 이용할 수 없음. <br>
-=> 객체를 생성하기 위해 static한 `of()`를 사용.<br>
-[Class PageRequest](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/PageRequest.html) <br>
-![image](https://user-images.githubusercontent.com/99089584/228426864-4ade5aa7-5fd5-4cf1-9498-a2fda925a426.png) <br>
+⇒ 객체를 생성하기 위해 static한 `of()`를 사용.
+
+![image](https://user-images.githubusercontent.com/99089584/228426864-4ade5aa7-5fd5-4cf1-9498-a2fda925a426.png)
+
 ![image](https://user-images.githubusercontent.com/99089584/228433855-ea4bb018-969a-4075-86e4-995952939dfb.png)
-    > ＊ `of()`의 형태 <br>
-    > `of(int page, int size)` : 0부터 시작하는 페이지 번호와 개수(size) <br>
-    > `of(int page, int size, Sort sort)` : 페이지 번호와 개수, 정렬 관련 정보
+_[🔗 [Link] Class PageRequest Reference](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/domain/PageRequest.html)_
+
+> #### ＊ `of()`의 형태
+> - `of(int page, int size)` : 0부터 시작하는 페이지 번호와 개수(size)
+> - `of(int page, int size, Sort sort)` : 페이지 번호와 개수, 정렬 관련 정보
 
 
 ## 3. 페이징 처리
@@ -53,9 +56,9 @@ public void testPageDefault() {
 ![image](https://user-images.githubusercontent.com/99089584/228431007-e801cf11-5a07-445b-b40e-84f2e46e831a.png) <br>
 - 첫 번째 쿼리 : 페이징 처리에 사용되는 `limit`구문 사용됨.
 - 두 번째 쿼리 : `count()`를 이용해 전체 개수를 처리. <br>
-=> `findAll()`에 `Pageable`타입의 파라미터를 전달하면 페이징 처리에 관련된 쿼리들을 실행하고, 이 결과들을 이용해 리턴 타입으로 지정된 `Page<엔티티 타입>` 객체로 저장함.
+⇒ `findAll()`에 `Pageable`타입의 파라미터를 전달하면 페이징 처리에 관련된 쿼리들을 실행하고, 이 결과들을 이용해 리턴 타입으로 지정된 `Page<엔티티 타입>` 객체로 저장함.
 
-### 2) `Page<엔티티 타입>`의 메서드
+### 2) Page<엔티티 타입>의 메서드
 
 ```java
 System.out.println(result);
@@ -102,11 +105,11 @@ public void testSort() {
 }
 ```
 
-- 쿼리 <br>
+#### 쿼리
 ![image](https://user-images.githubusercontent.com/99089584/228434541-8b44285d-be92-4352-a6d1-a9d7af3bd7ff.png)
   - 페이징 처리만 했을 때의 쿼리와 비교했을 때 `order by`구문이 추가된 것을 알 수 있음.
 
-- 실행 결과(역순 정렬) <br>
+#### 실행 결과(역순 정렬)
 ![image](https://user-images.githubusercontent.com/99089584/228435372-ee15ccb7-9bef-4762-8a2e-514b7049ee7e.png)
 
 
