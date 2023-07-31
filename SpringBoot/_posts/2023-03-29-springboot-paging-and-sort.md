@@ -53,7 +53,8 @@ public void testPageDefault() {
 }
 ```
 
-![image](https://user-images.githubusercontent.com/99089584/228431007-e801cf11-5a07-445b-b40e-84f2e46e831a.png) <br>
+![image](https://user-images.githubusercontent.com/99089584/228431007-e801cf11-5a07-445b-b40e-84f2e46e831a.png) 
+
 - 첫 번째 쿼리 : 페이징 처리에 사용되는 `limit`구문 사용됨.
 - 두 번째 쿼리 : `count()`를 이용해 전체 개수를 처리. <br>
 ⇒ `findAll()`에 `Pageable`타입의 파라미터를 전달하면 페이징 처리에 관련된 쿼리들을 실행하고, 이 결과들을 이용해 리턴 타입으로 지정된 `Page<엔티티 타입>` 객체로 저장함.
