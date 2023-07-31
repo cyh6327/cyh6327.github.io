@@ -3,7 +3,11 @@ title:  "[SpringBoot] #7 화면 구성을 위한 Thymeleaf 사용 - 1"
 categories: 
     - SpringBoot
 tags: [Thymeleaf]
+<<<<<<< HEAD
+date: 2023-04-02 01:00:00
+=======
 date: 2023-04-02
+>>>>>>> ee0efa97c556676e0d629447e63d6a4f26ea9e01
 last_modified_at: 2023-04-02
 ---
 

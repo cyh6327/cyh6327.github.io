@@ -3,7 +3,11 @@ title:  "[SpringBoot] #2 Maria 데이터베이스와 Spring Data JPA"
 categories: 
     - SpringBoot
 tags: [MariaDB, ORM, JPA, Hibernate, SpringDataJAP]
+<<<<<<< HEAD
+date: 2023-03-28 01:00:00
+=======
 date: 2023-03-28
+>>>>>>> ee0efa97c556676e0d629447e63d6a4f26ea9e01
 last_modified_at: 2023-03-28
 ---
 
