@@ -99,7 +99,7 @@ console.log(freddie.colorChange('orange'));		//TypeError
 ```
 
 - `static` 메서드는 해당 생성자에서만 살아있도록 설계되었기 때문에 어떤 자식들도 상속받을 수 없다.
-- js에서 class의 인스턴스인 객체를 만들었다면 해당 객체는 클래스를 상속받는 자식 객체이다.
+- js에서 `class`의 인스턴스인 객체를 만들었다면 해당 객체는 클래스를 상속받는 자식 객체이다.
 - 따라서 자식인 `freddie` 객체는 `static` 메서드를 상속받을 수 없기 때문에 `TypeError` 발생.
 
 

@@ -2,14 +2,14 @@
 title:  "[SpringBoot] #2 Maria 데이터베이스와 Spring Data JPA"
 categories: 
     - SpringBoot
+tags: [MariaDB, ORM, JPA, Hibernate, SpringDataJAP]
 date: 2023-03-28
 last_modified_at: 2023-03-28
 ---
- 
-# [Spring Boot] #2 Maria 데이터베이스와 Spring Data JPA
 
 ## 1. Maria 데이터베이스 설정
-- Maria DB : 오픈 소스로 사용 가능, MySQL과 거의 동일한 기능 제공, 클라우드 환경에서도 오라클 데이터베이스에 비해 적은 비용으로 사용 가능하다는 장점
+#### Maria DB :
+오픈 소스로 사용 가능, MySQL과 거의 동일한 기능 제공, 클라우드 환경에서도 오라클 데이터베이스에 비해 적은 비용으로 사용 가능하다는 장점
 1. 'mariadb.org' 에서 다운
 2. HeidiSQL 실행 ⇒ 암호 입력후 '열기' ⇒ 우클릭-새로생성-데이터베이스 생성(bootex) ⇒ 사람 아이콘-사용자 계정 추가-사용자 이름,암호 설정-접근 허용 객체 추가(방금 만든 데이터베이스 선택)
 
@@ -17,26 +17,28 @@ last_modified_at: 2023-03-28
 - 프로젝트 생성시 db 사용하기 위해 'Spring Data JPA' 의존성 추가
 ![image](https://user-images.githubusercontent.com/99089584/227992216-4e17426c-e5e7-41a8-997d-19308b1f7e74.png)
 
-- main() 실행 시 에러 발생
+#### main() 실행 시 에러 발생
 
-    ```
-    Description:
+```
+Description:
 
-    Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
 
-    Reason: Failed to determine a suitable driver class
-    ```
+Reason: Failed to determine a suitable driver class
+```
+{: file="error" }
 
-    => Spring Data JPA 라이브러리가 추가되면서 자동으로 이에 관련된 설정은 추가되었으나(스프링 부트의 특성) 구체적인 값이 지정되지 않아서 발생한 문제. <br>
-    => 'mvnrepository.com' 에서 MariaDB 드라이버의 gradle 설정 복사 ⇒ `build.gradle`에 추가 ⇒ 아이콘 클릭해서 라이브러리 반영.
+⇒ Spring Data JPA 라이브러리가 추가되면서 자동으로 이에 관련된 설정은 추가되었으나(스프링 부트의 특성) 구체적인 값이 지정되지 않아서 발생한 문제. <br>
+⇒ 'mvnrepository.com' 에서 MariaDB 드라이버의 gradle 설정 복사 ⇒ `build.gradle`에 추가 ⇒ 아이콘 클릭해서 라이브러리 반영.
 
-    ```gradle
-    // * build.gradle
-    dependencies {
-        // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
-        implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.1.0'
-    }
-    ```
+```gradle
+dependencies {
+    // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.1.0'
+}
+```
+{: file="build.gradle" }
+    
 
 
 ## 3. 데이터베이스 설정을 위한 `application.properties` 파일
@@ -44,12 +46,12 @@ last_modified_at: 2023-03-28
 - 스프링 부트는 설정 파일로 properties 파일이나 yml 파일을 만들어서 세팅함.
 
 ```properties
-# * application.properties
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 spring.datasource.url=jdbc:mariadb://localhost:3306/bootex
 spring.datasource.username=bootuser
 spring.datasource.password=bootuser
 ```
+{: file="application.properties" }
 
 - `External Libraries` : 라이브러리 저장 폴더
 
@@ -68,8 +70,8 @@ spring.datasource.password=bootuser
 
 ### 2) JPA(Java Persistence API)
 - Java 언어를 통해서 데이터베이스와 같은 영속 계층을 처리하고자 하는 스펙.
-- ORM을 Java 언어에 맞게 사용하는 '스펙' => JPA는 Java라는 언어에 국한된 개념.
-- JPA는 단순한 스펙이므로 해당 스펙을 구현하는 구현체마다 회사의 이름이나 프레임워크의 이름이 다름. => 가장 유명한 것은 'Hibernate'
+- ORM을 Java 언어에 맞게 사용하는 '스펙' ⇒ JPA는 Java라는 언어에 국한된 개념.
+- JPA는 단순한 스펙이므로 해당 스펙을 구현하는 구현체마다 회사의 이름이나 프레임워크의 이름이 다름. ⇒ 가장 유명한 것은 'Hibernate'
 
 ### 3) Hibernate
 - 스프링 부트는 JPA의 구현체 중에서 'Hibernate'라는 구현체를 이용함.

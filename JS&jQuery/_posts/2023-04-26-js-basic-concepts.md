@@ -23,7 +23,7 @@ last_modified_at: 2023-04-27
 - `Object.is()`, `Object.keys()`등 `prototype` 버킷에 정의되지 않은 멤버들은 상속되지 않음. <br> 
 => 이것들은 Object() 생성자에서만 사용할 수 있는 멤버들.
 
-### 1) `Object.getPrototypeOf(obj)`
+### 1) Object.getPrototypeOf(obj)
 - 해당 함수를 통해 객체의 프로토타입 객체에 바로 접근할 수 있음.
 
 ```js

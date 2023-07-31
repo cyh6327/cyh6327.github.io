@@ -2,27 +2,27 @@
 title:  "[SpringBoot] #3 Spring Data JPA 실습 설정"
 categories: 
     - SpringBoot
+tags: [Entity, JPA, JPARepository]
 date: 2023-03-28
 last_modified_at: 2023-03-28
 ---
 
-# [Spring Boot] #3 Spring Data JPA 실습 설정
-
-## 0. 기타
+## 설정
 - 자동 import 기능 설정<br>
 File ⇒ Settings ⇒ Auto Import 검색 ⇒ 체크박스 선택
 ![image](https://user-images.githubusercontent.com/99089584/228097914-6f27a13e-3769-426a-ae07-96f183fa46d6.png)
 
 - sysout 자동완성 => 'sout' 입력 후 ctrl+space
 
+
 ## Spring Data JPA가 개발에 필요한 것
 1. JPA를 통해서 관리하게 되는 객체(엔티티객체)를 위한 엔티티 클래스.
 2. 엔티티 객체들을 처리하는 기능을 가진 Repository.
 
+
 ## 1. 엔티티 클래스 작성
 
 ```java
-// * Memo.java
 package org.zerock.ex2.entity;
 
 import jakarta.persistence.*;
@@ -46,6 +46,7 @@ public class Memo {
     private String memoText;
 }
 ```
+{: file="Memo.java" }
 
 ### `@Entity`
 - 해당 클래스가 엔티티를 위한 클래스이며, 해당 클래스의 인스턴스들이 JPA로 관리되는 엔티티 객체라는 것을 의미함.
@@ -70,11 +71,12 @@ public class Memo {
 ## 2. Spring Data JPA를 위한 스프링 부트 설정
 
 ```properties
-# * application.properties
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.format_sql=true
 spring.jpa.show-sql=true
 ```
+{: file="application.properties" }
+
 
 ### `spring.jpa.hibernate.ddl-auto`
 - 프로젝트 실행 시에 자동으로 DDL(create, alter, drop 등)을 생성할 것인지를 결정하는 설정.
@@ -99,7 +101,6 @@ spring.jpa.show-sql=true
 => Spring Data JPA는 인터페이스 선언만으로도 자동으로 스프링의 빈으로 등록됨. (스프링이 내부적으로 인터페이스 타입에 맞는 객체들을 생성해서 빈으로 등록)
 
 ```java
-// * MemoRepository.java
 package org.zerock.ex2.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -108,3 +109,4 @@ import org.zerock.ex2.entity.Memo;
 public interface MemoRepository extends JpaRepository<Memo, Long> {
 }
 ```
+{: file="MemoRepository.java" }

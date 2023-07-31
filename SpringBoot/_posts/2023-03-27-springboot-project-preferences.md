@@ -6,9 +6,7 @@ date: 2023-03-27
 last_modified_at: 2023-03-27
 ---
 
-# [Spring Boot] #1 프로젝트를 위한 준비
-
-## 0. 스프링 레퍼런스 문서
+## 스프링 레퍼런스 문서
 - [Spring Boot API](https://docs.spring.io/spring-boot/docs/current/api/)
 - [Spring Data API](https://docs.spring.io/spring-data/commons/docs/current/api/)
 
@@ -21,19 +19,18 @@ last_modified_at: 2023-03-27
 ## 2. 테스트 환경에서 Lombok 활용
 
 ```gradle
-// * build.gradle
 dependencies {
     // 테스트 환경에서 lombok 사용 가능하게 함
 	testCompileOnly 'org.projectlombok:lombok:1.18.24'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 ```
+{: file="build.gradle" }
 
 ## 3. 간단한 컨트롤러 실습
 - 스프링 부트 프로젝트는 'Spring Web' 의존성 항목을 추가하는 경우에 라이브러리 추가 없이 자동으로 JSON 타입의 데이터를 사용할 수 있음.
   
     ```java
-    // * SampleController.java
     package org.zerock.ex1.controller;
 
     import org.springframework.web.bind.annotation.GetMapping;
@@ -47,6 +44,7 @@ dependencies {
         }
     }
     ```
+    {: file="SampleController.java" }
 
 - 컨트롤러 생성 후 `Ex1Application` 클래스의 main() 실행 ⇒ 브라우저로 'http://localhost:8080/hello' 호출. <br>
 ![image](https://user-images.githubusercontent.com/99089584/228006130-a4b3a204-d5c2-4c23-94dd-f4ea2ec80093.png)
