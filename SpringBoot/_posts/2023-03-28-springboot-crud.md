@@ -3,11 +3,7 @@ title:  "[SpringBoot] #4 CRUD 구현"
 categories: 
     - SpringBoot
 tags: [JpaRepository]
-<<<<<<< HEAD
 date: 2023-03-28 03:00:00
-=======
-date: 2023-03-28
->>>>>>> ee0efa97c556676e0d629447e63d6a4f26ea9e01
 last_modified_at: 2023-03-28
 ---
 
