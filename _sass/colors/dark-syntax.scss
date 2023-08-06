@@ -27,16 +27,16 @@
 
   .highlight pre { background-color: var(--highlight-bg-color); }
   .highlight .hll { background-color: var(--highlight-bg-color); }
-  .highlight .c { color: #75715e; } /* Comment */
+  .highlight .c { color: rgba(117,117,117,.9); } /* Comment */
   .highlight .err { color: #960050; background-color: #1e0010; } /* Error */
   .highlight .k { color: #F3AA60; } /* Keyword */
   .highlight .l { color: #ae81ff; } /* Literal */
   .highlight .n { color: #f0ee7a; } /* Name */
   .highlight .o { color: #dee2e6; } /* Operator */
   .highlight .p { color: #f8f8f2; } /* Punctuation */
-  .highlight .cm { color: #75715e; } /* Comment.Multiline */
-  .highlight .cp { color: #75715e; } /* Comment.Preproc */
-  .highlight .c1 { color: #75715e; } /* Comment.Single */
+  .highlight .cm { color: rgba(117,117,117,.9); } /* Comment.Multiline */
+  .highlight .cp { color: rgba(117,117,117,.9); } /* Comment.Preproc */
+  .highlight .c1 { color: rgba(117,117,117,.9); } /* Comment.Single */
   .highlight .cs { color: #75715e; } /* Comment.Special */
   .highlight .ge { color: inherit; font-style: italic; } /* Generic.Emph */
   .highlight .gs { font-weight: bold; } /* Generic.Strong */
@@ -87,7 +87,7 @@
   .highlight .vg { color: #f8f8f2; } /* Name.Variable.Global */
   .highlight .vi { color: #f8f8f2; } /* Name.Variable.Instance */
   .highlight .il { color: #ae81ff; } /* Literal.Number.Integer.Long */
-  .highlight .gu { color: #75715e; } /* Generic.Subheading & Diff Unified/Comment? */
+  .highlight .gu { color: rgba(117,117,117,.9); } /* Generic.Subheading & Diff Unified/Comment? */
   .highlight .gd { color: #468B97; background-color: #561c08; } /* Generic.Deleted & Diff Deleted */
   .highlight .gi { color: #468B97; background-color: #0b5858; } /* Generic.Inserted & Diff Inserted */
 }
