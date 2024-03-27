@@ -5,7 +5,7 @@
 /* ---------- scss placeholder --------- */
 
 %heading {
-  color: var(--heading-color);
+  color: var(--heading-color) !important;
   font-weight: 400;
   font-family: $font-family-heading;
 }
@@ -61,7 +61,7 @@
 }
 
 %link-color {
-  color: #ccc;
+  color: #ccc !important;
 }
 
 %link-underline {
@@ -102,7 +102,7 @@
     font-style: normal;
     font-size: 80%;
     padding: 0;
-    color: #6d6c6c;
+    color: #6d6c6c !important;
   }
 }
 
@@ -148,8 +148,8 @@
   opacity: 0.6;
 }
 
-@mixin label($font-size: 1rem, $font-weight: 600, $color: var(--label-color)) {
-  color: #de6b18;
+@mixin label($font-size: 1rem, $font-weight: 600, $color: var(--label-color) !important) {
+  color: #de6b18 !important; 
   font-size: $font-size;
   font-weight: $font-weight;
 }
@@ -162,11 +162,11 @@
 
 @mixin prompt($type, $fa-content, $fa-style: 'solid') {
   &.prompt-#{$type} {
-    background-color: var(--prompt-#{$type}-bg);
+    background-color: var(--prompt-#{$type}-bg) !important;
 
     &::before {
       content: $fa-content;
-      color: var(--prompt-#{$type}-icon-color);
+      color: var(--prompt-#{$type}-icon-color) !important;
       font: var(--fa-font-#{$fa-style});
     }
   }
