@@ -2,7 +2,7 @@
  * The syntax light mode code snippet colors.
  */
 
-@mixin light-syntax {
+@mixin syntax-light {
   /* --- custom light colors --- */
   --language-border-color: #ececec;
   --highlight-bg-color: #f6f8fa;
@@ -211,4 +211,4 @@
     color: #24292f;
     font-weight: bold;
   }
-} /* light-syntax */
+} /* syntax-light */
