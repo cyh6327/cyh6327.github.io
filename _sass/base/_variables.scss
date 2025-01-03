@@ -1,7 +1,8 @@
 // Typography
 $font-family-main: 'MaruBuri', Helvetica, Arial, sans-serif !default;
+$font-family-code: 'D2Coding', Helvetica, Arial, sans-serif !default;
 $font-family-headings: 'MaruBuri', Helvetica, Arial, sans-serif !default;
-$font-size: 1.10em !default;
+$font-size: 16px !default;
 
 // Padding
 $padding-large: 20% !default;
@@ -9,12 +10,12 @@ $padding-small: 5% !default;
 $padding-x-small: 3% !default;
 
 // Brand colours
-$brand-color: #fff !default;
-$background-color: #fff !default;
+$brand-color: #100E17 !default;
+$background-color: #100E17 !default;
 $border-color: rgba(0, 0, 0, 0.1) !default; // rgba recommended if using feature images
 
 // Typography colours
-$text-color: #383838 !default;
+$text-color: #d7d7d7 !default;
 $link-color: #1ABC9C !default;
 $selection-color: #D4D4D4 !default; // visible when highlighting text
 
@@ -39,6 +40,13 @@ $header-desc-link-color: #02453D !default;
 @font-face {
     font-family: 'MaruBuri';
     src: url('/assets/fonts/MaruBuri-Regular.woff2') format('woff2'); /* OTF 파일 경로 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'D2Coding';
+    src: url('/assets/fonts/D2Coding.woff2') format('woff2'); /* OTF 파일 경로 */
     font-weight: normal;
     font-style: normal;
 }

@@ -32,6 +32,21 @@ while (j < 20) {
 }
 {% endhighlight %}
 
+```java
+if(!local_book_key.isEmpty()) {
+    Map<String,Object> bookInfo = integratebookMapper.getBookInfo2(Long.parseLong(local_book_key));
+    if(bookInfo != null) {
+        String workingStatus = String.valueOf(bookInfo.get("WORKING_STATUS"));
+        if(!workingStatus.equals("BOL112N")) {
+            resultObject.put("status", "WARNING");
+            resultObject.put("statusDescription", "비치 상태가 아닌 자료는 발송이 불가합니다.");
+            resultObject.put("statusCode", "LILL_K02_LOC_B01_03_SERVICE_0006");
+            return resultObject;
+        }
+    }
+}
+```
+
 Type Theme uses KaTeX to display maths. Equations such as $$S_n = a \times \frac{1-r^n}{1-r}$$ can be displayed inline.
 
 Alternatively, they can be shown on a new line:

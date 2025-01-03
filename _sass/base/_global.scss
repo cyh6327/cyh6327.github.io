@@ -26,6 +26,7 @@ body {
   font-family: $font-family-main;
   font-size: $font-size;
   word-wrap: break-word;
+  background: $background-color;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-headings;
@@ -34,18 +35,6 @@ h1, h2, h3, h4, h5, h6 {
   a {
     color: $text-color;
   }
-}
-h1 {
-  font-size: 2.5em;
-}
-h2 {
-  font-size: 2em;
-}
-h3 {
-  font-size: 1.5em;
-}
-h4 {
-  font-size: 1.15em;
 }
 blockquote {
     border-left: 2px solid;
@@ -79,6 +68,10 @@ code,
 kbd,
 pre,
 samp {
+  font-family: $font-family-main;
+  font-size: $font-size;
+  color: $text-color;
+  padding: 16px;
   margin: 1em 0;
 }
 dt {
@@ -128,4 +121,71 @@ img[align=left] {
 }
 img[align=right] {
   margin-left: 3%;
+}
+.markdown-body {
+  color: $text-color !important;
+  font-family: $font-family-main !important;
+  font-size: $font-size !important;
+  background: $background-color !important;
+}
+
+.markdown-body h1 {
+  font-size: 1.4em !important;
+  color: #fff !important;
+  margin-top: 3rem !important;
+  border-bottom: 1px solid #c5beff6e !important;
+  padding-bottom: 0.4em !important;
+}
+.markdown-body h2 {
+  font-size: 1.2em !important;
+  color: #fff !important;
+  margin-top: 2rem !important;
+  border-bottom: none !important;
+}
+.markdown-body h3 {
+  font-size: 1.0em !important;
+}
+.markdown-body h4 {
+  font-size: 1.0em !important; 
+}
+
+.markdown-body hr {
+  margin: 3rem 5rem !important; 
+  background: linear-gradient(to left, transparent, #f4569d, transparent) !important; 
+  border-bottom: none !important;
+  height: 1px !important;
+}
+
+.markdown-body .language-plaintext.highlighter-rouge {
+  color: #f4569d !important;
+}
+
+.markdown-body strong {
+  color: #ddd9ff !important;
+}
+
+ol li::marker {
+  color: #f4569d !important;
+}
+
+
+
+.meta {
+  color: $text-color !important;
+}
+
+.markdown-body h1.title {
+ border: none !important;
+}
+
+::selection {
+  background-color: transparent !important; /* 선택 영역 배경 색상 */
+  color: none !important; /* 선택된 텍스트 색상 */
+  text-decoration: underline;
+  text-decoration-color: #f4569d;
+  text-decoration-thickness: 3px; /* 두께 설정 */
+}
+
+.markdown-body pre code {
+  font-family: $font-family-code !important;
 }
