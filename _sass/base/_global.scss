@@ -173,11 +173,8 @@ ol li::marker {
 }
 
 ::selection {
-  background-color: transparent !important; /* 선택 영역 배경 색상 */
-  color: none !important; /* 선택된 텍스트 색상 */
-  text-decoration: underline;
-  text-decoration-color: #f4569d;
-  text-decoration-thickness: 3px; /* 두께 설정 */
+  background-color: #363341 !important;
+  color: #fff !important;
 }
 
 .markdown-body pre code {
@@ -224,7 +221,7 @@ h1 a:hover {
   color: $text-color !important;
   text-decoration: underline;
   text-decoration-color: #f4569d;
-  text-decoration-thickness: 2px; /* 두께 설정 */
+  text-decoration-thickness: 5px; /* 두께 설정 */
 }
 footer a {
   color: $text-color !important;
