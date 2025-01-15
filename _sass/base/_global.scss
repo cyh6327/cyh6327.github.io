@@ -98,10 +98,15 @@ li > ul, li > ol {
 //   list-style-position: inside;
 // }
 .markdown-body a {
-  text-decoration: underline;
-  text-decoration-color: #f4569d;
-  text-decoration-thickness: 3px; /* 두께 설정 */
-  color: none !important; /* 선택된 텍스트 색상 */
+  text-decoration: underline !important;
+  text-decoration-color: $main-point-color !important;
+  text-decoration-thickness: 3px !important; /* 두께 설정 */
+  color: $text-color !important; /* 선택된 텍스트 색상 */
+}
+.markdown-body a:hover {
+  text-decoration: none !important;
+  color: #fff !important; /* 선택된 텍스트 색상 */
+  background-color: $main-point-color !important;
 }
 .nav {
   list-style: none;
@@ -147,21 +152,21 @@ img[align=right] {
 
 .markdown-body hr {
   margin: 3rem 5rem !important; 
-  background: linear-gradient(to left, transparent, #f4569d, transparent) !important; 
+  background: linear-gradient(to left, transparent, $main-point-color, transparent) !important; 
   border-bottom: none !important;
   height: 1px !important;
 }
 
 .markdown-body .language-plaintext.highlighter-rouge {
-  color: #f4569d !important;
+  color: $main-point-color !important;
 }
 
 .markdown-body strong {
-  color: #ddd9ff !important;
+  color: $sub-point-color !important;
 }
 
 ol li::marker {
-  color: #f4569d !important;
+  color: $main-point-color !important;
 }
 
 // .meta {
@@ -190,20 +195,20 @@ ol li::marker {
   a {
     color: $text-color !important;
     text-decoration: underline;
-    text-decoration-color: #f4569d;
+    text-decoration-color: $main-point-color;
     text-decoration-thickness: 2px; /* 두께 설정 */
   }
-  a:hover {
-    color: #f4569d !important;
+  a:hover { 
+    color: $main-point-color !important;
   }
   a.button {
-    color: #f4569d !important;
+    color: $main-point-color !important;
     text-decoration: none;
   }
   a.button:hover {
     color: $background-color !important;
     text-decoration: none;
-    background-color: #f4569d;
+    background-color: $main-point-color;
   }
 }
 .site-header a {
@@ -214,13 +219,13 @@ ol li::marker {
   background-color: transparent !important; /* 선택 영역 배경 색상 */
   color: none !important; /* 선택된 텍스트 색상 */
   text-decoration: underline;
-  text-decoration-color: #f4569d;
+  text-decoration-color: $main-point-color;
   text-decoration-thickness: 3px; /* 두께 설정 */
 }
 h1 a:hover {
-  color: $text-color !important;
+  color: #fff !important;
   text-decoration: underline;
-  text-decoration-color: #f4569d;
+  text-decoration-color: $main-point-color;
   text-decoration-thickness: 5px; /* 두께 설정 */
 }
 footer a {
@@ -230,11 +235,11 @@ footer a {
 footer a:hover {
   color: $text-color !important;
   text-decoration: underline;
-  text-decoration-color: #f4569d;
+  text-decoration-color: $main-point-color;
   text-decoration-thickness: 2px; /* 두께 설정 */
-}
+} 
 a.tag {
-  color: #f4569d !important;
+  color: $main-point-color !important;
   padding: .2em .4em;
   white-space: break-spaces;
   background-color: #656c7633 !important;
@@ -244,5 +249,5 @@ a.tag {
 a.tag:hover {
   color: #fff !important;
   text-decoration: none !important;
-  background-color: #f4569d !important;
+  background-color: $main-point-color !important;
 }
