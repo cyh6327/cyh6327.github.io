@@ -169,6 +169,11 @@ ol li::marker {
   color: $main-point-color !important;
 }
 
+ul li::marker {
+  color: $main-point-color !important;
+}
+
+
 // .meta {
 //   color: $text-color !important;
 // }
@@ -245,6 +250,7 @@ a.tag {
   background-color: #656c7633 !important;
   border-radius: 6px;
   font-size: 85%;
+  text-decoration: none !important;
 }
 a.tag:hover {
   color: #fff !important;
