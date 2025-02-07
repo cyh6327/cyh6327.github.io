@@ -166,6 +166,21 @@ img[align=right] {
   color: $sub-point-color !important;
 }
 
+.markdown-body summary::marker {
+  color: $main-point-color !important; /* 원하는 색상으로 변경 */
+}
+
+.markdown-body blockquote {
+  border-left: .25em solid $sub-point-color !important;
+  color: $text-color !important;
+  background-color: #19191c !important;
+  padding: 1.2em !important;
+}
+
+.markdown-body blockquote>:first-child {
+  font-weight: 600 !important;
+}
+
 ol li::marker {
   color: $main-point-color !important;
 }
@@ -188,8 +203,9 @@ ul li::marker {
   color: #fff !important;
 }
 
-.markdown-body pre code {
+.markdown-body pre {
   font-family: $font-family-code !important;
+  background-color: #19191c !important;
 }
 
 .posts .excerpt {
@@ -257,4 +273,8 @@ a.tag:hover {
   color: #fff !important;
   text-decoration: none !important;
   background-color: $main-point-color !important;
+}
+.markdown-body sup {
+  color: #fff !important;
+  font-weight: 600 !important;
 }
