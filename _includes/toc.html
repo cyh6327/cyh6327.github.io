@@ -1,0 +1,15 @@
+{% assign headers = content | split: '<h' %}
+{% if headers.size > 1 %}
+<div class="toc">
+    <ul>
+    {% for item in headers offset:1 %}
+        {% assign header = item | split: '</h' | first %}
+        {% assign level = item | slice: 0, 1 | plus: 0 %}
+        {% assign title = header | split: '>' | last %}
+        <li class="toc-level-{{ level }}" style="margin-left: {{ level | minus: 1 | times: 1.5 }}em;">
+            <a href="#{{ title | slugify }}">{{ title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}
